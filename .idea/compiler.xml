@@ -7,9 +7,11 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="xmind-generator" />
+        <module name="image-spider" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="image-spider" target="1.5" />
       <module name="xmind-generator" target="1.8" />
     </bytecodeTargetLevel>
   </component>

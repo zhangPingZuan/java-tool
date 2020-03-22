@@ -9,3 +9,6 @@ useful java tool !!!
 
 ![通用数据](xmind-generator/src/main/resources/通用数据.jpg)
 ![通用结果](xmind-generator/src/main/resources/通用数据结果.jpg)
+
+## image-generator
+图片爬取
