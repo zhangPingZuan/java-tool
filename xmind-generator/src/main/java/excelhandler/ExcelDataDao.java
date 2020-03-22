@@ -1,6 +1,7 @@
 package excelhandler;
 
-import java.util.List;
+import treenode.CustomTreeNode;
+
 
 /**
  * @author Snow
@@ -10,6 +11,6 @@ import java.util.List;
  */
 public interface ExcelDataDao {
 
-    void save(List<ExcelData> excelDataList);
+    void save(CustomTreeNode root);
 
 }
