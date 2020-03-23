@@ -4,6 +4,7 @@ import excelhandler.ExcelDataDao;
 import excelhandler.FileDaoImpl;
 import excelhandler.listener.BankExcelDataListener;
 import excelhandler.listener.GeneralExcelDataListener;
+import org.apache.commons.lang3.StringUtils;
 import treenode.CustomTreeNode;
 import treenode.ExcelDataImpl;
 
@@ -18,30 +19,28 @@ import java.io.File;
  */
 public class ExcelHandler {
 
-    public static void main(String[] args) {
+    private ConcreteListenerEnum concreteListenerEnum;
+    private String excelPath;
+    private ExcelDataDao excelDataDao;
 
-        new ExcelHandler(ConcreteListenerEnum.BANK);
-
+    ExcelHandler(ConcreteListenerEnum concreteListenerEnum, String excelPath, ExcelDataDao excelDataDao) {
+        this.concreteListenerEnum = concreteListenerEnum;
+        this.excelPath = excelPath;
+        this.excelDataDao = excelDataDao;
     }
 
-    ExcelHandler(ConcreteListenerEnum concreteListenerEnum) {
-        if (ConcreteListenerEnum.BANK.equals(concreteListenerEnum)){
-            String excelPath = "/Users/zhangpingzuan/Desktop/集团客户清单/集团客户清单数据.xlsx";
+    public void ParseExcelSetUp(){
 
-            String fileName = "数据test";
-            File file = new File(ExcelHandler.class.getResource("/").getPath() + "/" + fileName + ".txt");
-            ExcelDataDao excelDataDao = new FileDaoImpl(file);
+        if (ConcreteListenerEnum.BANK.equals(concreteListenerEnum)){
+//            String excelPath = "/Users/zhangpingzuan/Desktop/集团客户清单/集团客户清单数据.xlsx";
             EasyExcel.read(excelPath, ExcelDataImpl.class, new BankExcelDataListener(excelDataDao)).sheet().doRead();
 
         } else if (ConcreteListenerEnum.GENERAL.equals(concreteListenerEnum)) {
-            String excelPath = "/Users/zhangpingzuan/Desktop/集团客户清单/通用数据.xlsx";
-
-            String fileName = "通用数据";
-            File file = new File(ExcelHandler.class.getResource("/").getPath() + "/" + fileName + ".txt");
-            ExcelDataDao excelDataDao = new FileDaoImpl(file);
+//            String excelPath = "/Users/zhangpingzuan/Desktop/集团客户清单/通用数据.xlsx";
             EasyExcel.read(excelPath, CustomTreeNode.class, new GeneralExcelDataListener(excelDataDao)).sheet().doRead();
         }
     }
+
 
 
 }
