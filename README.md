@@ -8,7 +8,9 @@ useful java tool !!!
 ```
 用法
 
-java -jar ./xmind-generator-1.0-SNAPSHOT-jar-with-dependencies.jar ./excel.xlsx 
+java -jar ./xmind-generator-1.0-SNAPSHOT-jar-with-dependencies.jar ./excel.xlsx
+java -jar ./xmind-generator-1.0-SNAPSHOT-jar-with-dependencies.jar ./excel.xlsx ./output.xmind 
+java -jar ./xmind-generator-1.0-SNAPSHOT-jar-with-dependencies.jar ./excel.xlsx ./output.xmind BANK
 ```
 
 数据示例:
